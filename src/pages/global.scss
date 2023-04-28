@@ -1,0 +1,457 @@
+@font-face {
+    font-family: Logo;
+    src: url(../fonts/minecraft.ttf);
+}
+
+@mixin Container {
+    overflow: auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@mixin Flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.Home {
+    @include Container();
+    gap: 15px;
+    .Logout {
+        fill: rgb(44,62,80);
+        &:hover {
+            transition: 0.5s ease;
+            scale: 1.05;
+            fill: rgb(192, 47, 22);
+            cursor: pointer;
+            rotate: 360deg;
+        }
+    }
+    .LoadingLogo {
+        text-align: center;
+        text-shadow: 1px 3px 3px rgb(97, 97, 97);
+    }
+    .Logo {
+        font-family: Logo;
+        color: rgb(38, 53, 68);
+        text-shadow: 1px 3px 3px rgb(97, 97, 97);
+        font-size: 3em;
+        height: 10px;
+        //font-size: 5em;
+        .LoadingDot {
+            position: relative;
+            left: 0px;
+        }
+        .Dot-1 {
+            animation: DotsMovement-2 3s infinite ease-in-out alternate;
+        }
+        .Dot-2 {
+            animation: DotsMovement-1 3s infinite ease-in-out alternate;
+        }
+        .Dot-3 {
+            animation: DotsMovement 3s infinite ease-in-out alternate;
+        }
+    }
+    .Error {
+        font-family: Logo;
+        font-size: 2em;
+        text-align: center;
+        text-shadow: 1px 3px 3px rgb(97, 97, 97);
+    }
+    .TableNav {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        & a {
+            text-decoration: none;
+            color: rgb(245, 245, 245);
+            font-size: 1.5em;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .TableHead {
+        color: black;
+        background-color: rgb(44, 62, 80);
+    }
+    .CrudButtons {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        a {
+            cursor: pointer;
+            font-size: 1.5em;
+            text-decoration: none;
+            color: rgb(245, 245, 245);
+            width: 80px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: rgb(44, 62, 80);
+            border-radius: 5px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.Search-Bar {
+    background-color: #1f2a35;
+    border: 0 solid #2b2d3d;
+    border-radius: 15px;
+    color: white;
+    height: 40px;
+    margin: 0 24px;
+    max-width: 500px;
+    min-height: 35px;
+    padding: 0 0 0 20px;
+    width: 80%;
+}
+
+table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: rgb(228, 228, 228);
+    td, th {
+        text-align: center;
+        padding: 8px;
+    }
+}
+
+.TableButtons {
+    display: flex;
+    button {
+        height: 20px;
+        border: none;
+        border-radius: 5px;
+    }
+}
+
+.PaginationBar-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    & a {
+        text-decoration: none;
+        font-size: 1em;
+        cursor: default;
+        color: black;
+    }
+    .PaginationBar {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        justify-content: center;
+        align-items: center;
+        //transform: translateX(-3%);
+        padding: 0;
+        gap: 2px;
+    }
+}
+
+.FormContainer {
+    @include Container();
+    .FormHeader {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        .BackButton {
+            width: 25px;
+            height: 25px;
+            &:hover {
+            scale: 1.05;
+            transition: 0.5s ease;
+            }    
+        }
+        h2 {
+            color: rgb(44, 62, 80);
+        }
+    }
+    form {
+        @include Flex();
+        gap: 8px;
+        text-align: center;
+        align-items: center;
+        max-width: 500px;
+        width: 80%;
+        label {
+            width: 506px;
+            font-weight: bold;
+            color: rgb(44, 62, 80);
+        }
+        input {
+            width: 100%;
+            height: 25px;
+            border: solid 1px rgb(44, 62, 80);
+            border-radius: 5px;
+        }
+        select {
+            border-radius: 5px;
+            border: solid 1px rgb(44, 62, 80);
+            width: 100%;
+            height: 25px;
+        }
+        .Submit {
+            margin-top: 10px;
+            height: 50px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(44, 62, 80);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            &:hover {
+                transition: 0.3s ease;
+                scale: 1.05;
+            }
+        }
+        .Image-Preview {
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgb(44, 62, 80);
+            object-fit: cover;
+        }
+        .ImageInput-label{
+            display: flex;
+            max-width: 133px;
+            justify-content: center;
+            .ImageInput {
+                color: transparent;
+                border: 0;
+                height: 21px;
+            }
+        }
+    }
+    .postSuccess {
+        @include Flex();
+        align-items: center;
+        text-align: center;
+        background-color: rgb(250, 250, 250);
+        color: white;
+        width: 90%;
+        max-width: 300px;
+        border-radius: 5px;
+        animation-name: postSuccess;
+        animation-duration: 2s;
+        transform: translate(0%, 0%);
+        box-shadow: 1px 2px 5px #000;
+        height: 168px;
+        position: fixed;
+        z-index: 1;
+        & h1 {
+            color: rgb(44, 62, 80);
+            font-size: 1.1em;
+        }
+    }
+}
+
+.DeleteIcon {
+    pointer-events: all;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    &:hover {
+        transition: 0.3s ease;
+        scale: 1.05;
+        cursor: pointer;
+        //color: rgb(255, 52, 52);
+        color: rgb(44, 62, 80);
+    }  
+    .Icon-delete--under {
+        pointer-events: none;
+    }
+}
+
+.EditIcon {
+    &:hover {
+        transition: 0.3s ease;
+        scale: 1.05;
+        cursor: pointer;
+        //color: rgb(255, 52, 52);
+        fill: rgb(44, 62, 80);
+    }  
+    .Icon-edit--under {
+        pointer-events: none;
+    }
+}
+
+.ModalBackground {
+    background: rgba(35, 31, 35, 0.5);
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 2;
+}
+  
+.FormTodo {
+    background-color: rgb(250, 250, 250);
+    color: white;
+    width: 90%;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    height: 270px;
+    animation-name: OpenModal;
+    animation-duration: 0.2s;
+    transform: translate(0%, 0%);
+    position: fixed;
+}
+  
+.FormTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(46, 39, 46);
+    background-color: rgb(250, 250, 250);
+    margin-bottom: 26px;
+    max-width: 260px;
+    word-break: break-word;
+}
+  
+.FormText {
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid #202329; 
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
+    height: 96px;
+    width: calc(100% - 69px);
+}
+  
+.FormText:focus {
+    outline-color: rgb(247, 207, 133);
+}
+  
+.FormText::placeholder {
+    color: #A5A5A5;
+    font-weight: 400;
+}
+  
+.Form-ButtonContainer {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    background-color: rgb(250, 250, 250);
+}
+  
+.FormButton {
+    display: inline-block;
+    font-size: 20px;
+    color: #202329;
+    font-weight: 400;
+    width: 120px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+}
+  
+.FormButton--cancel {
+    background-color: rgb(250, 250, 250);
+    transition: 0.5s ease;
+}
+  
+.FormButton--cancel:hover {
+    scale: 1.1;
+    background-color: rgb(230, 230, 230);
+}
+  
+.FormButton--add {
+    /*background: #92d5f3;*/
+    /*box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);*/
+    background-color: rgb(44, 62, 80);
+    color: white;
+    box-shadow: 0px 5px 25px rgba(245, 222, 179, 0.5);
+    transition: 0.5s ease;
+}
+  
+.FormButton--add:hover {
+    scale: 1.1;
+    background-color: rgb(52, 74, 95);;
+}
+
+.InvisibleContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+  
+@keyframes OpenModal {
+    0% {transform: translate(0%, -10%);}
+    100% {transform: translate(0%, 0%);}
+}
+
+@keyframes postSuccess {
+    0% {transform: translate(0%, -10%);}
+    50% {transform: translate(0%, 0%);}
+    100% {transform: translate(-1000%, 0%); display: none;}
+}
+
+@keyframes DotsMovement {
+    0% {left: 0px; opacity: 1;}
+    15% {left: 35px; opacity: 0;}
+    100% {left: 35px; opacity: 0;}
+}
+
+@keyframes DotsMovement-1 {
+    0% {left: 0px; opacity: 1;}
+    15% {left: 0px; opacity: 1;}
+    30% {left: 35px; opacity: 0;}
+    100% {left: 35px; opacity: 0;}
+}
+
+@keyframes DotsMovement-2 {
+    0% {left: 0px; opacity: 1;}
+    30% {left: 0px; opacity: 1;}
+    45% {left: 35px; opacity: 0;}
+    100% {left: 35px; opacity: 0;}
+}
+  
+
+
+
+
+
+
+
