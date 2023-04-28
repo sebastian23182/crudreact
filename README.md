@@ -32,7 +32,7 @@ This project is a React CRUD about gaming products 🕹️
 - JWT 🔒
 - Jest and supertest 🧪
 
-###Installation and setup 💻
+### Installation and setup 💻
 
 1. Clone this repository: `git clone https://github.com/sebastian23182/crudreact.git`
 2. Clone the REST API repository: `git clone https://github.com/sebastian23182/restapioracle-test.git`
