@@ -25,8 +25,8 @@ This project is a React CRUD about gaming products 🕹️
 - React ⚛️
 - React router DOM with browser router 🌐
 - Express REST API with:
- - Multer 📤
- - Oracledb 🗃️
+  - Multer 📤
+  - Oracledb 🗃️
 - Oracle database express 21c 🐬
 - SASS 💄
 - JWT 🔒
