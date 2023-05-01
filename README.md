@@ -1,7 +1,7 @@
 # React CRUD 👾
 This project is a React CRUD about gaming products 🕹️
 
-###Features 🚀
+### Features 🚀
 - JWT authentication 🔑
 - Create new products with the following fields:
   - Product ID
@@ -21,18 +21,18 @@ This project is a React CRUD about gaming products 🕹️
 - Pagination bar 📈
 - Success, loading and error messages 📨
 
-###Technologies used 💻
+### Technologies used 💻
 - React ⚛️
 - React router DOM with browser router 🌐
 - Express REST API with:
- - Multer 📤
- - Oracledb 🗃️
+  - Multer 📤
+  - Oracledb 🗃️
 - Oracle database express 21c 🐬
 - SASS 💄
 - JWT 🔒
 - Jest and supertest 🧪
 
-###Installation and setup 💻
+### Installation and setup 💻
 
 1. Clone this repository: `git clone https://github.com/sebastian23182/crudreact.git`
 2. Clone the REST API repository: `git clone https://github.com/sebastian23182/restapioracle-test.git`
@@ -42,7 +42,7 @@ This project is a React CRUD about gaming products 🕹️
 5. Start the React development server: `npm run start`
 6. Open your browser and go to: `http://localhost:3002/login`
 
-###Usage 🎮
+### Usage 🎮
 
 1. Login with these credentials:
  - Email: Admincaja@gamers.com
@@ -56,7 +56,7 @@ This project is a React CRUD about gaming products 🕹️
 8. Change page by clicking on the numbers of the pagination bar
 9. Logout by clicking on the **turn on/off icon** located below the **GAMERS** logo
 
-###License 📝
+### License 📝
 This project is licensed under the MIT License. See the `LICENSE` file for more information.
 
 Thank you for your interest in this project!
