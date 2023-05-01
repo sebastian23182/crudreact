@@ -22,6 +22,11 @@ function NewProduct({ products, setProducts, status, setStatus, loading, error }
 
     const onChangePicture = (e) => {
         if (e.target.files[0]) {
+            if(!e.target.files[0].type.startsWith('image/')){
+                setImgData(" ");
+                e.target.value = null;
+                return;
+            }
           const reader = new FileReader();
           reader.addEventListener("load", () => {
             setImgData(reader.result);
@@ -43,7 +48,7 @@ function NewProduct({ products, setProducts, status, setStatus, loading, error }
                 data.append("NOMBRE_PRODUCTO", e.target.NOMBRE_PRODUCTO.value);
                 data.append("STOCK", Number(e.target.STOCK.value));
                 data.append("PRECIO", Number(e.target.PRECIO.value));
-                if(e.target.IMAGEN.files[0]){
+                if(e.target.IMAGEN.files[0] && e.target.IMAGEN.files[0].type.startsWith('image/')){
                     data.append("file", e.target.IMAGEN.files[0]);
                 }
                 usePostProduct(data, setStatus, products, setProducts);

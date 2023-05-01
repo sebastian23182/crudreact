@@ -46,10 +46,16 @@ function Update({ products, setProducts, status, setStatus, loading, error, onLo
 
     const onChangePicture = (e) => {
         if (e.target.files[0]) {
-          setFileSelected(true)
-          const reader = new FileReader();
-          reader.readAsDataURL(e.target.files[0]);
-          reader.onload = () => {
+            if(!e.target.files[0].type.startsWith('image/')){
+                setImgData(" ");
+                e.target.value = null;
+                setFileSelected(true)
+                return;
+            }
+            setFileSelected(true)
+            const reader = new FileReader();
+            reader.readAsDataURL(e.target.files[0]);
+            reader.onload = () => {
             setImgData(reader.result);
           }
         }
@@ -92,7 +98,7 @@ function Update({ products, setProducts, status, setStatus, loading, error, onLo
                     data.append("NOMBRE_PRODUCTO", e.target.NOMBRE_PRODUCTO.value);
                     data.append("STOCK", Number(e.target.STOCK.value));
                     data.append("PRECIO", Number(e.target.PRECIO.value));
-                    if(e.target.IMAGEN.files[0]){
+                    if(e.target.IMAGEN.files[0] && e.target.IMAGEN.files[0].type.startsWith('image/')){
                         data.append("file", e.target.IMAGEN.files[0]);
                     }
                     useUpdateProduct(data, productData[0], setStatus, products, setProducts, imgData, setProductData);
